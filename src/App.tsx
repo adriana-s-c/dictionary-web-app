@@ -1,8 +1,13 @@
 import * as React from "react";
 import { Box } from "@chakra-ui/react";
+import { DictionaryApp } from "./components";
 
 function App() {
-  return <Box>Hello</Box>;
+  return (
+    <Box>
+      <DictionaryApp />
+    </Box>
+  );
 }
 
 export default App;
