@@ -6,10 +6,12 @@ import { ModeChange } from "./ModeChange";
 
 export function NavBar() {
   return (
-    <Box display="flex" flexDir="row">
+    <Box display="flex" flexDir="row" w="100%">
       <Logo />
-      <FontChange />
-      <ModeChange />
+      <Box display="flex" flexDir="row" w="100%" justifyContent="flex-end">
+        <FontChange />
+        <ModeChange />
+      </Box>
     </Box>
   );
 }
