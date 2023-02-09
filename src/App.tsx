@@ -1,12 +1,12 @@
 import * as React from "react";
-import { Box } from "@chakra-ui/react";
+import { Center } from "@chakra-ui/react";
 import { DictionaryApp } from "./components";
 
 function App() {
   return (
-    <Box>
+    <Center paddingBlock="100px">
       <DictionaryApp />
-    </Box>
+    </Center>
   );
 }
 

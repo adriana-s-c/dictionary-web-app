@@ -5,7 +5,7 @@ import { WordPage } from "./WordPage";
 
 export function DictionaryApp() {
   return (
-    <Box>
+    <Box w="737px">
       <NavBar />
       <WordPage />
     </Box>
