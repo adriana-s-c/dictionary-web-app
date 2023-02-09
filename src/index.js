@@ -8,8 +8,8 @@ import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
   fonts: {
-    heading: `insolata`,
-    body: `insolata`,
+    heading: `Inter`,
+    body: `Inter`,
   },
 });
 
