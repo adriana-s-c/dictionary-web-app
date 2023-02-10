@@ -4,7 +4,7 @@ import searchIcon from "../../../images/icon-search.svg";
 
 export function SearchInput() {
   return (
-    <InputGroup>
+    <InputGroup marginBottom="50px">
       <Input
         bgColor="#F4F4F4"
         borderColor="#F4F4F4"
