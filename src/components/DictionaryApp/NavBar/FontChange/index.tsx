@@ -9,11 +9,9 @@ import {
 } from "@chakra-ui/react";
 import arrowDown from "../../../../images/icon-arrow-down.svg";
 
-// zdefiniować w custom theme by nie bylo tego szarego poswietlenia i w ogole zrobić jaknajwiecej w tym theme by tutaj było jak najmniej
-
 export function FontChange() {
   return (
-    <Box w="120px" h="24px">
+    <Box w="120px" h="24px" marginRight="20px">
       <Menu>
         <MenuButton>
           <Box display="flex" flexDir="row" w="100%">

@@ -14,9 +14,16 @@ export function NavBar() {
       marginBottom="50px"
     >
       <Logo />
-      <Box display="flex" flexDir="row" w="100%" justifyContent="flex-end">
+      <Box
+        display="flex"
+        flexDir="row"
+        w="100%"
+        h="36.5px"
+        justifyContent="flex-end"
+        alignItems="center"
+      >
         <FontChange />
-        <Divider orientation="vertical" />
+        <Divider orientation="vertical" h="32px" />
         <ModeChange />
       </Box>
     </Box>
