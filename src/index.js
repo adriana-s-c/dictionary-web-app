@@ -2,10 +2,30 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 import { menuAnatomy } from "@chakra-ui/anatomy";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/react";
+
+const helpers = createMultiStyleConfigHelpers(["container", "track", "thumb"]);
+
+const Switch = helpers.defineMultiStyleConfig({
+  baseStyle: {
+    container: {},
+    track: {
+      bg: "#757575",
+      _checked: {
+        bgColor: "#A445ED",
+      },
+      _hover: {
+        bgColor: "#A445ED",
+      },
+    },
+    thumb: {
+      bg: "white",
+    },
+  },
+});
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(menuAnatomy.keys);
@@ -33,6 +53,11 @@ const baseStyle = definePartsStyle({
   },
 });
 
+const config = {
+  initialColorMode: "light",
+  useSystemColorMode: false,
+};
+
 export const menuTheme = defineMultiStyleConfig({ baseStyle });
 
 const theme = extendTheme({
@@ -42,7 +67,9 @@ const theme = extendTheme({
   },
   components: {
     Menu: menuTheme,
+    Switch: Switch,
   },
+  config,
 });
 
 export default theme;
@@ -51,6 +78,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ChakraProvider theme={theme}>
     <React.StrictMode>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <App />
     </React.StrictMode>
   </ChakraProvider>
