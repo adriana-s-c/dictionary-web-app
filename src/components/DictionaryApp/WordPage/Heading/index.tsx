@@ -11,7 +11,7 @@ export function Heading() {
       h="114px"
       justifyContent="space-between"
       alignItems="center"
-      marginBottom="50px"
+      marginBottom="40px"
     >
       <Box display="flex" flexDir="column">
         <Text

@@ -4,61 +4,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
-import { menuAnatomy } from "@chakra-ui/anatomy";
-import { createMultiStyleConfigHelpers } from "@chakra-ui/react";
-
-const helpers = createMultiStyleConfigHelpers(["container", "track", "thumb"]);
-
-const Switch = helpers.defineMultiStyleConfig({
-  baseStyle: {
-    container: {},
-    track: {
-      bg: "#757575",
-      _checked: {
-        bgColor: "#A445ED",
-      },
-      _hover: {
-        bgColor: "#A445ED",
-      },
-    },
-    thumb: {
-      bg: "white",
-    },
-  },
-});
-
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(menuAnatomy.keys);
-
-const baseStyle = definePartsStyle({
-  button: {
-    transition: "all 0.2s",
-    borderRadius: "16px",
-    borderWidt: "1px",
-    borderColor: "white",
-    fontSize: "18px",
-    fontWeight: "700",
-  },
-  list: {
-    borderRadius: "16px",
-    borderColor: "white",
-    shadow: "md",
-  },
-  item: {
-    _hover: { color: "#A445ED", bgColor: "white" },
-    fontSize: "18px",
-    fontWeight: "700",
-    bgColor: "white",
-    padding: "0px",
-  },
-});
+import { listTheme } from "./components/componentsStyle/list";
+import { switchTheme } from "./components/componentsStyle/switch";
+import { menuTheme } from "./components/componentsStyle/menu";
 
 const config = {
   initialColorMode: "light",
   useSystemColorMode: false,
 };
-
-export const menuTheme = defineMultiStyleConfig({ baseStyle });
 
 const theme = extendTheme({
   fonts: {
@@ -67,7 +20,8 @@ const theme = extendTheme({
   },
   components: {
     Menu: menuTheme,
-    Switch: Switch,
+    Switch: switchTheme,
+    List: listTheme,
   },
   config,
 });
