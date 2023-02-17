@@ -1,8 +1,11 @@
 import * as React from "react";
 import { Box, Text, Img } from "@chakra-ui/react";
 import playSound from "../../../../images/icon-play.svg";
+import { WordContext } from "../../../../context";
 
 export function Heading() {
+  const { word } = React.useContext(WordContext);
+
   return (
     <Box
       display="flex"
@@ -20,10 +23,10 @@ export function Heading() {
           fontWeight="700"
           textShadow="0px 4px 4px #00000040"
         >
-          keyboard
+          {word[0].word}
         </Text>
         <Text fontSize="24px" color="#A445ED">
-          /ˈkiːbɔːd/
+          {word[0].phonetics[0].text}
         </Text>
       </Box>
       <Img src={playSound} alt="play" w="75px" h="75px" />
