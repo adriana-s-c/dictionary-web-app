@@ -11,7 +11,7 @@ export function WordMeaning() {
       >
         Meaning
       </Text>
-      <UnorderedList spacing="13px">
+      <UnorderedList spacing="13px" color="#2D2D2D">
         <ListItem>
           (etc.) A set of keys used to operate a typewriter, computer etc.
         </ListItem>
