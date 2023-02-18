@@ -1,9 +1,11 @@
 import * as React from "react";
 import { Icon, IconButton } from "@chakra-ui/react";
-import { WordContext } from "../../../../../context";
+import { DictionaryDefitinitionContext } from "../../../../../context";
 
 export function PlayWordSound() {
-  const { word } = React.useContext(WordContext);
+  const { dictionaryDefinition } = React.useContext(
+    DictionaryDefitinitionContext
+  );
   const [hovered, setHovered] = React.useState(false);
 
   const PlayIcon = (props: any) => (
@@ -30,7 +32,7 @@ export function PlayWordSound() {
   );
 
   const handleClick = () => {
-    const audioSrc = word[0].phonetics.find(
+    const audioSrc = dictionaryDefinition[0].phonetics.find(
       (element: any) => element.audio.length > 0
     ).audio;
     const wordAudio = new Audio(audioSrc);

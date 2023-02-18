@@ -3,14 +3,16 @@ import { Box } from "@chakra-ui/react";
 import { WordTypedHeading } from "./WordTypeHeading";
 import { WordMeaning } from "./WordMeaning";
 import { WordSynonyms } from "./WordSynonyms";
-import { WordContext } from "../../../../context";
+import { DictionaryDefitinitionContext } from "../../../../context";
 
 export function Definition() {
-  const { word } = React.useContext(WordContext);
+  const { dictionaryDefinition } = React.useContext(
+    DictionaryDefitinitionContext
+  );
 
   return (
     <Box>
-      {word[0].meanings.map((meaning: any) => {
+      {dictionaryDefinition[0].meanings.map((meaning: any) => {
         return (
           <Box>
             <WordTypedHeading partOfSpeech={meaning.partOfSpeech} />

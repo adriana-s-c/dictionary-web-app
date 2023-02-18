@@ -1,10 +1,12 @@
 import * as React from "react";
 import { Box, Text } from "@chakra-ui/react";
-import { WordContext } from "../../../../context";
+import { DictionaryDefitinitionContext } from "../../../../context";
 import { PlayWordSound } from "./PlayWordSound";
 
 export function Heading() {
-  const { word } = React.useContext(WordContext);
+  const { dictionaryDefinition } = React.useContext(
+    DictionaryDefitinitionContext
+  );
 
   return (
     <Box
@@ -23,10 +25,10 @@ export function Heading() {
           fontWeight="700"
           textShadow="0px 4px 4px #00000040"
         >
-          {word[0].word}
+          {dictionaryDefinition[0].word}
         </Text>
         <Text fontSize="24px" color="#A445ED">
-          {word[0].phonetics[0].text}
+          {dictionaryDefinition[0].phonetics[0].text}
         </Text>
       </Box>
       <PlayWordSound />
