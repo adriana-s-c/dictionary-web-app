@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Box, Divider, Text } from "@chakra-ui/react";
-import { WordContext } from "../../../../../context";
 
 export function WordTypedHeading({ partOfSpeech }: { partOfSpeech: string }) {
   return (
@@ -10,6 +9,7 @@ export function WordTypedHeading({ partOfSpeech }: { partOfSpeech: string }) {
       alignItems="center"
       h="29px"
       marginBottom="40px"
+      marginTop="40px"
     >
       <Text fontSize="24px" fontWeight="700" marginRight="20px">
         {partOfSpeech}

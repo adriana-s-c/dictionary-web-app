@@ -1,8 +1,8 @@
 import { Box, Text } from "@chakra-ui/react";
 
-export function WordSynonyms({ synonym }: { synonym: string }) {
+export function WordSynonyms({ synonyms }: { synonyms: Array<string> }) {
   return (
-    <Box marginTop="40px" display="flex" flexDir="row">
+    <Box display="flex" flexDir="row">
       <Text
         marginBottom="25px"
         fontSize="20px"
@@ -12,8 +12,10 @@ export function WordSynonyms({ synonym }: { synonym: string }) {
       >
         Synonyms
       </Text>
-      <Text fontSize="20px" fontWeight="700" color="#A445ED">
-        {synonym}
+      <Text fontSize="20px" fontWeight="700" color="#A445ED" display="flex">
+        {synonyms.map((synonym: string) => {
+          return <Text marginRight="15px">{synonym}</Text>;
+        })}
       </Text>
     </Box>
   );

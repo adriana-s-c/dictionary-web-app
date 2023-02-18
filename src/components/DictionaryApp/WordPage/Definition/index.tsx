@@ -14,9 +14,9 @@ export function Definition() {
         return (
           <Box>
             <WordTypedHeading partOfSpeech={meaning.partOfSpeech} />
-            <WordMeaning />
+            <WordMeaning definitions={meaning.definitions} />
             {meaning.synonyms.length < 1 ? null : (
-              <WordSynonyms synonym={meaning.synonyms} />
+              <WordSynonyms synonyms={meaning.synonyms} />
             )}
           </Box>
         );
