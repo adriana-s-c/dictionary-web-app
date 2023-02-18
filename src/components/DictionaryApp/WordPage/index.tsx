@@ -9,7 +9,7 @@ export function WordPage() {
     <Box>
       <Heading />
       <Definition />
-      <Divider borderColor="#979797" />
+      <Divider borderColor="#979797" marginTop="40px" />
       <Source />
     </Box>
   );

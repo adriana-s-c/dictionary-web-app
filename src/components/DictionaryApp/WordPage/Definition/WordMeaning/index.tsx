@@ -1,8 +1,8 @@
 import { Text, Box, UnorderedList, ListItem } from "@chakra-ui/react";
 
-export function WordMeaning() {
+export function WordMeaning({ definitions }: { definitions: any }) {
   return (
-    <Box>
+    <Box marginBottom="40px">
       <Text
         marginBottom="25px"
         fontSize="20px"
@@ -11,20 +11,26 @@ export function WordMeaning() {
       >
         Meaning
       </Text>
-      <UnorderedList spacing="13px" color="#2D2D2D">
-        <ListItem>
-          (etc.) A set of keys used to operate a typewriter, computer etc.
-        </ListItem>
-        <ListItem>
-          A component of many instruments including the piano, organ, and
-          harpsichord consisting of usually black and white keys that cause
-          different tones to be produced when struck.
-        </ListItem>
-        <ListItem>
-          A device with keys of a musical keyboard, used to control electronic
-          sound-producing devices which may be built into or separate from the
-          keyboard device.
-        </ListItem>
+      <UnorderedList spacing="13px">
+        {definitions.map((singleDefinition: any) => {
+          return (
+            <Box>
+              <ListItem fontSize="18px" color="2D2D2D">
+                {singleDefinition.definition}
+              </ListItem>
+              {singleDefinition.example ? (
+                <Text
+                  fontWeight="400"
+                  fontSize="18px"
+                  color="#757575"
+                  marginTop="13px"
+                >
+                  "{singleDefinition.example}"
+                </Text>
+              ) : null}
+            </Box>
+          );
+        })}
       </UnorderedList>
     </Box>
   );

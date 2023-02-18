@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Box, Text, Img } from "@chakra-ui/react";
-import playSound from "../../../../images/icon-play.svg";
+import { Box, Text } from "@chakra-ui/react";
 import { WordContext } from "../../../../context";
+import { PlayWordSound } from "./PlayWordSound";
 
 export function Heading() {
   const { word } = React.useContext(WordContext);
@@ -29,7 +29,7 @@ export function Heading() {
           {word[0].phonetics[0].text}
         </Text>
       </Box>
-      <Img src={playSound} alt="play" w="75px" h="75px" />
+      <PlayWordSound />
     </Box>
   );
 }
