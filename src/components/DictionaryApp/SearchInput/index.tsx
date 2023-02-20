@@ -4,12 +4,17 @@ import searchIcon from "../../../images/icon-search.svg";
 import { WordContext } from "../../../context";
 
 export function SearchInput() {
-  const { word, setWord } = React.useContext(WordContext);
+  const { setWord } = React.useContext(WordContext);
+  const [inputWord, setInputWord] = React.useState("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTimeout(() => {
-      return setWord(event.target.value);
-    }, 2000);
+    return setInputWord(event.target.value);
+  };
+
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Enter") {
+      setWord(inputWord);
+    }
   };
 
   return (
@@ -24,9 +29,16 @@ export function SearchInput() {
         borderRadius="16px"
         w="736px"
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
       />
-      <InputRightElement pointerEvents="none" h="64px">
-        <Img src={searchIcon} alt="Search" />
+      <InputRightElement h="64px">
+        <Img
+          src={searchIcon}
+          alt="Search"
+          onClick={() => {
+            setWord(inputWord);
+          }}
+        />
       </InputRightElement>
     </InputGroup>
   );
