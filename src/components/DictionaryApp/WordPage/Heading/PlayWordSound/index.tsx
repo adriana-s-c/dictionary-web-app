@@ -39,7 +39,7 @@ export function PlayWordSound() {
     return wordAudio.play();
   };
 
-  return (
+  return dictionaryDefinition[0].phonetics.length === 0 ? null : (
     <IconButton
       icon={<PlayIcon />}
       aria-label="play word sound"
