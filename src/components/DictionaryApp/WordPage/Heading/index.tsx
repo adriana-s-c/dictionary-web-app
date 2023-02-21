@@ -28,7 +28,9 @@ export function Heading() {
           {dictionaryDefinition[0].word}
         </Text>
         <Text fontSize="24px" color="#A445ED">
-          {dictionaryDefinition[0].phonetics[0].text}
+          {dictionaryDefinition[0].phonetics.length < 1
+            ? null
+            : dictionaryDefinition[0].phonetics[0].text}
         </Text>
       </Box>
       <PlayWordSound />
