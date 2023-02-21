@@ -15,6 +15,8 @@ function App() {
       });
   }, [word]);
 
+  console.log(dictionaryDefinition);
+
   return (
     <WordContext.Provider value={{ word, setWord }}>
       <DictionaryDefitinitionContext.Provider
