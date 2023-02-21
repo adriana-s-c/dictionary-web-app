@@ -14,10 +14,6 @@ const config = {
 };
 
 const theme = extendTheme({
-  fonts: {
-    heading: `Inter`,
-    body: `Inter`,
-  },
   components: {
     Menu: menuTheme,
     Switch: switchTheme,

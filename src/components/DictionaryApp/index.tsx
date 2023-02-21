@@ -3,10 +3,16 @@ import { Box, Text } from "@chakra-ui/react";
 import { NavBar } from "./NavBar";
 import { WordPage } from "./WordPage";
 import { SearchInput } from "./SearchInput";
-import { DictionaryDefitinitionContext, WordContext } from "../../context";
+import {
+  DictionaryDefitinitionContext,
+  FontContext,
+  WordContext,
+} from "../../context";
 import { ErrorPage } from "./ErrorPage";
 
 export function DictionaryApp() {
+  const [font, setFont] = React.useState("Inter");
+
   const { dictionaryDefinition } = React.useContext(
     DictionaryDefitinitionContext
   );
@@ -26,10 +32,12 @@ export function DictionaryApp() {
   }
 
   return (
-    <Box w="737px">
-      <NavBar />
-      <SearchInput />
-      {contentRender()}
-    </Box>
+    <FontContext.Provider value={{ font, setFont }}>
+      <Box w="737px" fontFamily={font}>
+        <NavBar />
+        <SearchInput />
+        {contentRender()}
+      </Box>
+    </FontContext.Provider>
   );
 }
