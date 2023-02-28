@@ -7,7 +7,6 @@ export function Source() {
   const { dictionaryDefinition } = React.useContext(
     DictionaryDefitinitionContext
   );
-  console.log(dictionaryDefinition[0].sourceUrls[0]);
 
   return (
     <Box marginTop="20px" display="flex" flexDir="row" h="17px">

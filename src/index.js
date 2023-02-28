@@ -13,6 +13,14 @@ const config = {
   useSystemColorMode: false,
 };
 
+const breakpoints = {
+  sm: "515px",
+  md: "610px",
+  lg: "750px",
+  xl: "1200px",
+  "2xl": "1536px",
+};
+
 const theme = extendTheme({
   styles: {
     global: () => ({
@@ -28,6 +36,7 @@ const theme = extendTheme({
     List: listTheme,
   },
   config,
+  breakpoints,
 });
 
 export default theme;
