@@ -12,7 +12,16 @@ export function ErrorPage() {
   const errorResolution = dictionaryDefinition.resolution;
 
   return (
-    <Box display="flex" flexDir="column" alignItems="center" w="736px">
+    <Box
+      display="flex"
+      flexDir="column"
+      alignItems="center"
+      w={{
+        base: "400px",
+        sm: "500px",
+        lg: "737px",
+      }}
+    >
       <Img
         src={confusedFaceEmoji}
         alt="Confused face emoji"
