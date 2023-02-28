@@ -33,7 +33,14 @@ export function DictionaryApp() {
 
   return (
     <FontContext.Provider value={{ font, setFont }}>
-      <Box w="737px" fontFamily={font}>
+      <Box
+        w={{
+          base: "400px",
+          sm: "500px",
+          lg: "737px",
+        }}
+        fontFamily={font}
+      >
         <NavBar />
         <SearchInput />
         {contentRender()}

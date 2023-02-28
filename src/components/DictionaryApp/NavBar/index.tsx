@@ -10,7 +10,11 @@ export function NavBar() {
       display="flex"
       flexDir="row"
       h="36.5px"
-      w="736.99px"
+      w={{
+        base: "400px",
+        sm: "500px",
+        lg: "737px",
+      }}
       marginBottom="50px"
     >
       <Logo />

@@ -12,7 +12,11 @@ export function Heading() {
     <Box
       display="flex"
       flexDir="row"
-      w="737px"
+      w={{
+        base: "400px",
+        sm: "500px",
+        lg: "737px",
+      }}
       h="114px"
       justifyContent="space-between"
       alignItems="center"

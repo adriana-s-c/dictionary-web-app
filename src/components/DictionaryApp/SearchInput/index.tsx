@@ -12,7 +12,7 @@ import searchIcon from "../../../images/icon-search.svg";
 import { WordContext } from "../../../context";
 
 export function SearchInput() {
-  const { word, setWord } = React.useContext(WordContext);
+  const { setWord } = React.useContext(WordContext);
   const [inputWord, setInputWord] = React.useState("");
   const [inputError, setInputError] = React.useState(false);
 
@@ -41,7 +41,14 @@ export function SearchInput() {
   };
 
   return (
-    <Box marginBottom="52px">
+    <Box
+      marginBottom="52px"
+      w={{
+        base: "400px",
+        sm: "500px",
+        lg: "737px",
+      }}
+    >
       <InputGroup>
         <Input
           bgColor={useColorModeValue("#F4F4F4", "#1F1F1F")}
@@ -52,7 +59,6 @@ export function SearchInput() {
           fontWeight="700"
           h="64px"
           borderRadius="16px"
-          w="736px"
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           isInvalid={inputError}
