@@ -14,6 +14,14 @@ const config = {
 };
 
 const theme = extendTheme({
+  styles: {
+    global: () => ({
+      body: {
+        _dark: { bg: "#050505" },
+        _light: { bg: "#FFFFFF" },
+      },
+    }),
+  },
   components: {
     Menu: menuTheme,
     Switch: switchTheme,
