@@ -40,11 +40,7 @@ export function FontChange() {
             <Img src={arrowDown} alt="Arrow down" marginLeft="8px" />
           </Box>
         </MenuButton>
-        <MenuList
-          paddingBlock="30px"
-          paddingLeft="30px"
-          boxShadow="0px 5px 30px 0px #0000001A"
-        >
+        <MenuList paddingBlock="30px" paddingLeft="30px">
           <Box
             w="90px"
             h="104px"

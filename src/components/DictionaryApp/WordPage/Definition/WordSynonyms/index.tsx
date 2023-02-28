@@ -77,9 +77,10 @@ export function WordSynonyms({ synonyms }: { synonyms: Array<string> }) {
         <IconButton
           aria-label="Click for more"
           icon={longList === true ? <TiArrowBack /> : <TfiMoreAlt />}
-          bgColor="white"
+          _light={{ bgColor: "#FFFFFF" }}
+          _dark={{ bgColor: "#050505" }}
           color="#A445ED"
-          _hover={{ bgColor: "white", opacity: "25%" }}
+          _hover={{ _light: { bgColor: "#FFFFFF" }, opacity: "25%" }}
           onClick={() =>
             longList === true ? setLongList(false) : setLongList(true)
           }

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Icon, IconButton } from "@chakra-ui/react";
+import { Icon, IconButton, useColorMode } from "@chakra-ui/react";
 import { DictionaryDefitinitionContext } from "../../../../../context";
 
 export function PlayWordSound() {
@@ -7,6 +7,7 @@ export function PlayWordSound() {
     DictionaryDefitinitionContext
   );
   const [hovered, setHovered] = React.useState(false);
+  const { colorMode } = useColorMode();
 
   const PlayIcon = (props: any) => (
     <Icon
@@ -43,8 +44,8 @@ export function PlayWordSound() {
     <IconButton
       icon={<PlayIcon />}
       aria-label="play word sound"
-      backgroundColor="white"
-      _hover={{ bgColor: "white" }}
+      bgColor={colorMode === "light" ? "white" : "#050505"}
+      _hover={{ bgColor: colorMode === "light" ? "white" : "#050505" }}
       onMouseEnter={() => {
         setHovered(true);
       }}

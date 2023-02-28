@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Text, Img, Link } from "@chakra-ui/react";
+import { Box, Text, Img, Link, useColorModeValue } from "@chakra-ui/react";
 import newWindowcIcon from "../../../../images/icon-new-window.svg";
 import { DictionaryDefitinitionContext } from "../../../../context";
 
@@ -29,7 +29,7 @@ export function Source() {
         flexDirection="row"
         fontSize="14px"
         fontWeight="400px"
-        color="#2D2D2D"
+        color={useColorModeValue("#2D2D2D", "#FFFFFF")}
         textDecorationLine="underline"
         textUnderlineOffset="3px"
         textDecorationThickness="0"

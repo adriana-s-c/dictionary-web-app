@@ -7,16 +7,24 @@ const { definePartsStyle, defineMultiStyleConfig } =
 const baseStyle = definePartsStyle({
   button: {
     transition: "all 0.2s",
+
     borderRadius: "16px",
     borderWidt: "1px",
-    borderColor: "white",
     fontSize: "18px",
     fontWeight: "700",
   },
   list: {
     borderRadius: "16px",
-    borderColor: "white",
-    shadow: "md",
+    _light: {
+      borderColor: "white",
+      shadow: "md",
+      boxShadow: "0px 5px 30px 0px, #0000001A",
+    },
+    _dark: {
+      bgColor: "#1F1F1F",
+      borderColor: "#1F1F1F",
+      boxShadow: "0px 5px 30px 0px #A445ED",
+    },
   },
   item: {
     _hover: { color: "#A445ED", bgColor: "white" },
@@ -24,6 +32,7 @@ const baseStyle = definePartsStyle({
     fontWeight: "700",
     bgColor: "white",
     padding: "0px",
+    _dark: { bgColor: "#1F1F1F" },
   },
 });
 

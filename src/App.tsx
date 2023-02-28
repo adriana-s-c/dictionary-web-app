@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Center } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { DictionaryApp } from "./components";
 import { WordContext, DictionaryDefitinitionContext } from "./context";
 
@@ -20,9 +20,9 @@ function App() {
       <DictionaryDefitinitionContext.Provider
         value={{ dictionaryDefinition, setDictionaryDefinition }}
       >
-        <Center paddingBlock="100px">
+        <Box paddingTop="58px" display="flex" justifyContent="center">
           <DictionaryApp />
-        </Center>
+        </Box>
       </DictionaryDefitinitionContext.Provider>
     </WordContext.Provider>
   );

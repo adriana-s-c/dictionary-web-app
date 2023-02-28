@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Divider } from "@chakra-ui/react";
+import { Box, Divider, useColorModeValue } from "@chakra-ui/react";
 import { FontChange } from "./FontChange";
 import { Logo } from "./Logo";
 import { ModeChange } from "./ModeChange";
@@ -23,7 +23,11 @@ export function NavBar() {
         alignItems="center"
       >
         <FontChange />
-        <Divider orientation="vertical" h="32px" />
+        <Divider
+          orientation="vertical"
+          h="32px"
+          bgColor={useColorModeValue("#979797", "#E9E9E9")}
+        />
         <ModeChange />
       </Box>
     </Box>

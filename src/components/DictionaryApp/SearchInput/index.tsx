@@ -6,6 +6,7 @@ import {
   InputRightElement,
   Text,
   Box,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import searchIcon from "../../../images/icon-search.svg";
 import { WordContext } from "../../../context";
@@ -43,8 +44,8 @@ export function SearchInput() {
     <Box marginBottom="52px">
       <InputGroup>
         <Input
-          bgColor="#F4F4F4"
-          borderColor="#F4F4F4"
+          bgColor={useColorModeValue("#F4F4F4", "#1F1F1F")}
+          borderColor={useColorModeValue("#F4F4F4", "#050505")}
           focusBorderColor={inputError === true ? "#FF5252" : "#A445ED"}
           errorBorderColor="#FF5252"
           fontSize="20px"
@@ -56,7 +57,7 @@ export function SearchInput() {
           onKeyDown={handleKeyDown}
           isInvalid={inputError}
           _placeholder={{
-            color: "#2D2D2D",
+            color: useColorModeValue("#2D2D2D", "white"),
             opacity: "25%",
             fontSize: "20px",
             fontWeight: "700",

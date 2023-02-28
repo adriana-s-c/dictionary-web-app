@@ -8,7 +8,11 @@ export function ModeChange() {
 
   return (
     <Box display="flex" flexDir="row" w="79.99px" h="24px" marginLeft="20px">
-      <Switch onClick={toggleColorMode} size="md" />
+      <Switch
+        onChange={toggleColorMode}
+        size="md"
+        isChecked={colorMode === "dark"}
+      />
       <Img alt="Mode Change" src={moonIcon} marginLeft="20px" />
     </Box>
   );
