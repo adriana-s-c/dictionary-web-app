@@ -1,7 +1,6 @@
 import * as React from "react";
-import { Box, Img, Switch } from "@chakra-ui/react";
+import { Box, Icon, Switch, useColorModeValue } from "@chakra-ui/react";
 import { useColorMode } from "@chakra-ui/react";
-import moonIcon from "../../../../images/icon-moon.svg";
 
 export function ModeChange() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -13,7 +12,17 @@ export function ModeChange() {
         size="md"
         isChecked={colorMode === "dark"}
       />
-      <Img alt="Mode Change" src={moonIcon} marginLeft="20px" />
+      <Icon viewBox="0 0 22 22" width="22" height="22" marginLeft="20px">
+        <path
+          fill="none"
+          stroke={useColorModeValue("#838383", "#A445ED")}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"
+        />
+      </Icon>
+      {/* <Img alt="Mode Change" src={moonIcon} marginLeft="20px" /> */}
     </Box>
   );
 }
