@@ -44,7 +44,8 @@ export function SearchInput() {
     <Box
       marginBottom="52px"
       w={{
-        base: "400px",
+        base: "360px",
+        xs: "400px",
         sm: "500px",
         lg: "737px",
       }}

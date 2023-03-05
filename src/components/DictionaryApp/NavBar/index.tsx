@@ -11,7 +11,8 @@ export function NavBar() {
       flexDir="row"
       h="36.5px"
       w={{
-        base: "400px",
+        base: "360px",
+        xs: "400px",
         sm: "500px",
         lg: "737px",
       }}
