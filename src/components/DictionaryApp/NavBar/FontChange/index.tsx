@@ -42,7 +42,7 @@ export function FontChange() {
         </MenuButton>
         <MenuList paddingBlock="30px" paddingLeft="30px">
           <Box
-            w="90px"
+            w="100%"
             h="104px"
             display="flex"
             flexDirection="column"
