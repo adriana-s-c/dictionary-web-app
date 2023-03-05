@@ -18,6 +18,8 @@ export function DictionaryApp() {
   );
   const { word } = React.useContext(WordContext);
 
+  console.log(dictionaryDefinition);
+
   function contentRender() {
     if (word.replace(/\s/g, "") === "") {
       return null;

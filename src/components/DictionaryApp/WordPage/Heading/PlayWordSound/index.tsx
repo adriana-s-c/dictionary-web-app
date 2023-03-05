@@ -32,15 +32,16 @@ export function PlayWordSound() {
     </Icon>
   );
 
+  const audioSrc = dictionaryDefinition[0].phonetics.find(
+    (element: any) => element.audio.length > 0
+  );
+
   const handleClick = () => {
-    const audioSrc = dictionaryDefinition[0].phonetics.find(
-      (element: any) => element.audio.length > 0
-    ).audio;
-    const wordAudio = new Audio(audioSrc);
+    const wordAudio = new Audio(audioSrc.audio);
     return wordAudio.play();
   };
 
-  return dictionaryDefinition[0].phonetics.length === 0 ? null : (
+  return audioSrc === undefined ? null : (
     <IconButton
       icon={<PlayIcon />}
       aria-label="play word sound"
