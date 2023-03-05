@@ -13,7 +13,8 @@ export function Heading() {
       display="flex"
       flexDir="row"
       w={{
-        base: "400px",
+        base: "360px",
+        xs: "400px",
         sm: "500px",
         lg: "737px",
       }}
@@ -25,7 +26,7 @@ export function Heading() {
       <Box display="flex" flexDir="column">
         <Text
           color="2D2D2D"
-          fontSize="64px"
+          fontSize={{ base: "50px", sm: "64px" }}
           fontWeight="700"
           textShadow="0px 4px 4px #00000040"
         >
