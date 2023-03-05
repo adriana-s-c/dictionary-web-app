@@ -24,27 +24,21 @@ export function WordSynonyms({ synonyms }: { synonyms: Array<string> }) {
       });
     }
     if (synonyms.length > 3) {
-      return longList === false ? (
-        <Box display="flex" flexDir="row">
-          {synonyms.slice(0, 3).map((synonym: string) => {
+      return longList === false
+        ? synonyms.slice(0, 3).map((synonym: string) => {
             return (
               <Text marginRight="15px" onClick={() => handleClick(synonym)}>
                 {synonym}
               </Text>
             );
-          })}
-        </Box>
-      ) : (
-        <Box display="flex" flexDir="row" w="100%" flexWrap="wrap">
-          {synonyms.map((synonym: string) => {
+          })
+        : synonyms.map((synonym: string) => {
             return (
               <Text marginRight="15px" onClick={() => handleClick(synonym)}>
                 {synonym}
               </Text>
             );
-          })}
-        </Box>
-      );
+          });
     }
   }
 
@@ -65,13 +59,15 @@ export function WordSynonyms({ synonyms }: { synonyms: Array<string> }) {
         fontWeight="700"
         color="#A445ED"
         display="flex"
-        maxW="616px"
+        maxW={{ base: "240px", sm: "616px" }}
         textDecorationLine="underline"
         textUnderlineOffset="3px"
         textDecorationThickness="0"
         cursor="pointer"
       >
-        {synonymsList(synonyms)}
+        <Box display="flex" flexDir="row" w="100%" flexWrap="wrap">
+          {synonymsList(synonyms)}
+        </Box>
       </Text>
       {synonyms.length > 3 ? (
         <IconButton
