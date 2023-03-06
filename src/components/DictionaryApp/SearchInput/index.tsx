@@ -70,6 +70,7 @@ export function SearchInput() {
             fontWeight: "700",
           }}
           placeholder="Search for any word…"
+          inputMode="search"
         />
         <InputRightElement h="64px">
           <Img src={searchIcon} alt="Search" onClick={handleSearchClick} />
