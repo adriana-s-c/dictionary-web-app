@@ -10,7 +10,8 @@ export function WordSynonyms({ synonyms }: { synonyms: Array<string> }) {
   const { setWord } = React.useContext(WordContext);
 
   const handleClick = (synonym: string) => {
-    return setWord(synonym);
+    setWord(synonym);
+    window.scrollTo({ top: 0, behavior: "auto" });
   };
 
   function synonymsList(synonyms: Array<string>) {
