@@ -17,7 +17,7 @@ export function PlayWordSound() {
       viewBox="0 0 75 75"
       {...props}
     >
-      <g fill="currentColor" fill-rule="evenodd">
+      <g fill="currentColor" fillRule="evenodd">
         <circle
           cx="37.5"
           cy="37.5"

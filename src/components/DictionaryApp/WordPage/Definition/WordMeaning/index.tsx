@@ -12,9 +12,9 @@ export function WordMeaning({ definitions }: { definitions: any }) {
         Meaning
       </Text>
       <UnorderedList spacing="13px">
-        {definitions.map((singleDefinition: any) => {
+        {definitions.map((singleDefinition: any, id: any) => {
           return (
-            <Box>
+            <Box key={id}>
               <ListItem fontSize="18px" color="2D2D2D">
                 {singleDefinition.definition}
               </ListItem>
