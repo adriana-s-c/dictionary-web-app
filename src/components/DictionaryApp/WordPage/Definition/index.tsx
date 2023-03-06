@@ -12,9 +12,9 @@ export function Definition() {
 
   return (
     <Box>
-      {dictionaryDefinition[0].meanings.map((meaning: any) => {
+      {dictionaryDefinition[0].meanings.map((meaning: any, id: any) => {
         return (
-          <Box>
+          <Box key={id}>
             <WordTypedHeading partOfSpeech={meaning.partOfSpeech} />
             <WordMeaning definitions={meaning.definitions} />
             {meaning.synonyms.length < 1 ? null : (

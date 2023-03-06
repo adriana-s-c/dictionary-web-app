@@ -15,9 +15,20 @@ export function WordSynonyms({ synonyms }: { synonyms: Array<string> }) {
 
   function synonymsList(synonyms: Array<string>) {
     if (synonyms.length < 4) {
-      return synonyms.map((synonym: string) => {
+      return synonyms.map((synonym: string, key: any) => {
         return (
-          <Text marginRight="15px" onClick={() => handleClick(synonym)}>
+          <Text
+            marginRight="15px"
+            fontSize="20px"
+            fontWeight="700"
+            onClick={() => handleClick(synonym)}
+            key={key}
+            color="#A445ED"
+            cursor="pointer"
+            textDecorationLine="underline"
+            textUnderlineOffset="3px"
+            textDecorationThickness="0"
+          >
             {synonym}
           </Text>
         );
@@ -25,16 +36,38 @@ export function WordSynonyms({ synonyms }: { synonyms: Array<string> }) {
     }
     if (synonyms.length > 3) {
       return longList === false
-        ? synonyms.slice(0, 3).map((synonym: string) => {
+        ? synonyms.slice(0, 3).map((synonym: string, key: any) => {
             return (
-              <Text marginRight="15px" onClick={() => handleClick(synonym)}>
+              <Text
+                marginRight="15px"
+                onClick={() => handleClick(synonym)}
+                key={key}
+                fontSize="20px"
+                fontWeight="700"
+                color="#A445ED"
+                cursor="pointer"
+                textDecorationLine="underline"
+                textUnderlineOffset="3px"
+                textDecorationThickness="0"
+              >
                 {synonym}
               </Text>
             );
           })
-        : synonyms.map((synonym: string) => {
+        : synonyms.map((synonym: string, key: any) => {
             return (
-              <Text marginRight="15px" onClick={() => handleClick(synonym)}>
+              <Text
+                marginRight="15px"
+                onClick={() => handleClick(synonym)}
+                key={key}
+                color="#A445ED"
+                fontSize="20px"
+                fontWeight="700"
+                cursor="pointer"
+                textDecorationLine="underline"
+                textUnderlineOffset="3px"
+                textDecorationThickness="0"
+              >
                 {synonym}
               </Text>
             );
@@ -54,34 +87,28 @@ export function WordSynonyms({ synonyms }: { synonyms: Array<string> }) {
       >
         Synonyms
       </Text>
-      <Text
-        fontSize="20px"
-        fontWeight="700"
-        color="#A445ED"
+      <Box
         display="flex"
+        flexDir="row"
+        w="100%"
+        flexWrap="wrap"
         maxW={{ base: "240px", sm: "616px" }}
-        textDecorationLine="underline"
-        textUnderlineOffset="3px"
-        textDecorationThickness="0"
-        cursor="pointer"
       >
-        <Box display="flex" flexDir="row" w="100%" flexWrap="wrap">
-          {synonymsList(synonyms)}
-        </Box>
-      </Text>
-      {synonyms.length > 3 ? (
-        <IconButton
-          aria-label="Click for more"
-          icon={longList === true ? <TiArrowBack /> : <TfiMoreAlt />}
-          _light={{ bgColor: "#FFFFFF" }}
-          _dark={{ bgColor: "#050505" }}
-          color="#A445ED"
-          _hover={{ _light: { bgColor: "#FFFFFF" }, opacity: "25%" }}
-          onClick={() =>
-            longList === true ? setLongList(false) : setLongList(true)
-          }
-        />
-      ) : null}
+        {synonymsList(synonyms)}
+        {synonyms.length > 3 ? (
+          <IconButton
+            aria-label="Click for more"
+            icon={longList === true ? <TiArrowBack /> : <TfiMoreAlt />}
+            _light={{ bgColor: "#FFFFFF" }}
+            _dark={{ bgColor: "#050505" }}
+            color="#A445ED"
+            _hover={{ _light: { bgColor: "#FFFFFF" }, opacity: "25%" }}
+            onClick={() =>
+              longList === true ? setLongList(false) : setLongList(true)
+            }
+          />
+        ) : null}
+      </Box>
     </Box>
   );
 }
