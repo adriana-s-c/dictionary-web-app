@@ -10,19 +10,19 @@ import {
 import arrowDown from "../../../../images/icon-arrow-down.svg";
 import { FontContext } from "../../../../context";
 
+function menuHeader(font: string) {
+  switch (font) {
+    case "Inter":
+      return " Sans Serif";
+    case "Lora":
+      return "Serif";
+    case "Inconsolata":
+      return "Mono";
+  }
+}
+
 export function FontChange() {
   const { font, setFont } = React.useContext(FontContext);
-
-  function menuHeader() {
-    switch (font) {
-      case "Inter":
-        return " Sans Serif";
-      case "Lora":
-        return "Serif";
-      case "Inconsolata":
-        return "Mono";
-    }
-  }
 
   return (
     <Box w="120px" h="24px" marginRight="20px" textAlign="right">
@@ -36,7 +36,7 @@ export function FontChange() {
             fontWeight="700"
             fontSize="18px"
           >
-            {menuHeader()}
+            {menuHeader(font)}
             <Img src={arrowDown} alt="Arrow down" marginLeft="8px" />
           </Box>
         </MenuButton>
