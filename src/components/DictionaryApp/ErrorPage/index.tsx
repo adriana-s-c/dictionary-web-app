@@ -8,8 +8,8 @@ export function ErrorPage() {
     DictionaryDefitinitionContext
   );
 
-  const errorMessage = dictionaryDefinition.message;
-  const errorResolution = dictionaryDefinition.resolution;
+  const { message, resolution } = dictionaryDefinition;
+  const errorMessage = message.concat(" ", resolution);
 
   return (
     <Box
@@ -33,7 +33,7 @@ export function ErrorPage() {
         {dictionaryDefinition.title}
       </Text>
       <Text fontSize="18px" fontWeight="400" textAlign="center">
-        {errorMessage.concat(" ", errorResolution)}
+        {errorMessage}
       </Text>
     </Box>
   );
