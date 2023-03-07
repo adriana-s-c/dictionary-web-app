@@ -4,7 +4,11 @@ import { TfiMoreAlt } from "react-icons/tfi";
 import { TiArrowBack } from "react-icons/ti";
 import { WordContext } from "../../../../../context";
 
-export function WordSynonyms({ synonyms }: { synonyms: Array<string> }) {
+type WordSynonymsProps = {
+  synonyms: Array<string>;
+};
+
+export function WordSynonyms({ synonyms }: WordSynonymsProps) {
   const [longList, setLongList] = React.useState(false);
 
   const { setWord } = React.useContext(WordContext);

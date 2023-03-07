@@ -1,7 +1,11 @@
 import * as React from "react";
 import { Box, Divider, Text } from "@chakra-ui/react";
 
-export function WordTypedHeading({ partOfSpeech }: { partOfSpeech: string }) {
+type WordTypedHeadingProps = {
+  partOfSpeech: string;
+};
+
+export function WordTypedHeading({ partOfSpeech }: WordTypedHeadingProps) {
   return (
     <Box
       display="flex"
