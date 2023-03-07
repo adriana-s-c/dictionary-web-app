@@ -58,7 +58,7 @@ export function Heading() {
             : dictionaryDefinition[0].phonetics[0].text}
         </Text>
       </Box>
-      <PlayWordSound />
+      {dictionaryDefinition[0].phonetics.length < 1 ? null : <PlayWordSound />}
     </Box>
   );
 }

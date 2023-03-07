@@ -30,6 +30,7 @@ export function PlayWordSound() {
 
   const handleClick = () => {
     const wordAudio = new Audio(audioSrc(dictionaryDefinition).audio);
+
     return wordAudio.play();
   };
 
