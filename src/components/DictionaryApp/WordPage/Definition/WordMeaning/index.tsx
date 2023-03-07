@@ -1,6 +1,10 @@
 import { Text, Box, UnorderedList, ListItem } from "@chakra-ui/react";
 
-export function WordMeaning({ definitions }: { definitions: any }) {
+type WordMeaningProps = {
+  definitions: any;
+};
+
+export function WordMeaning({ definitions }: WordMeaningProps) {
   return (
     <Box marginBottom="40px">
       <Text

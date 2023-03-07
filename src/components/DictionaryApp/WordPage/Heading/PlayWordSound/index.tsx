@@ -9,13 +9,12 @@ export function PlayWordSound() {
   const [hovered, setHovered] = React.useState(false);
   const { colorMode } = useColorMode();
 
-  const PlayIcon = (props: any) => (
+  const PlayIcon = () => (
     <Icon
       xmlns="http://www.w3.org/2000/svg"
       width="75"
       height="75"
       viewBox="0 0 75 75"
-      {...props}
     >
       <g fill="currentColor" fillRule="evenodd">
         <circle
