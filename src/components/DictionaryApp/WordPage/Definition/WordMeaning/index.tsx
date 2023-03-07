@@ -1,4 +1,5 @@
-import { Text, Box, UnorderedList, ListItem } from "@chakra-ui/react";
+import { Text, Box, UnorderedList } from "@chakra-ui/react";
+import { WordMeaningList } from "./WordMeaningList";
 
 type WordMeaningProps = {
   definitions: any;
@@ -16,25 +17,7 @@ export function WordMeaning({ definitions }: WordMeaningProps) {
         Meaning
       </Text>
       <UnorderedList spacing="13px">
-        {definitions.map((singleDefinition: any, id: any) => {
-          return (
-            <Box key={id}>
-              <ListItem fontSize="18px" color="2D2D2D">
-                {singleDefinition.definition}
-              </ListItem>
-              {singleDefinition.example ? (
-                <Text
-                  fontWeight="400"
-                  fontSize="18px"
-                  color="#757575"
-                  marginTop="13px"
-                >
-                  "{singleDefinition.example}"
-                </Text>
-              ) : null}
-            </Box>
-          );
-        })}
+        <WordMeaningList definitions={definitions} />
       </UnorderedList>
     </Box>
   );
