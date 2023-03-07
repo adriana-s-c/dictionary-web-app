@@ -2,7 +2,7 @@ import * as React from "react";
 import { Box, IconButton, Text } from "@chakra-ui/react";
 import { TfiMoreAlt } from "react-icons/tfi";
 import { TiArrowBack } from "react-icons/ti";
-import { WordContext } from "../../../../../context";
+import { SynonymsList } from "./SynonymsList";
 
 type WordSynonymsProps = {
   synonyms: Array<string>;
@@ -10,75 +10,6 @@ type WordSynonymsProps = {
 
 export function WordSynonyms({ synonyms }: WordSynonymsProps) {
   const [longList, setLongList] = React.useState(false);
-
-  const { setWord } = React.useContext(WordContext);
-
-  const handleClick = (synonym: string) => {
-    setWord(synonym);
-    window.scrollTo({ top: 0, behavior: "auto" });
-  };
-
-  function synonymsList(synonyms: Array<string>) {
-    if (synonyms.length < 4) {
-      return synonyms.map((synonym: string, key: any) => {
-        return (
-          <Text
-            marginRight="15px"
-            fontSize="20px"
-            fontWeight="700"
-            onClick={() => handleClick(synonym)}
-            key={key}
-            color="#A445ED"
-            cursor="pointer"
-            textDecorationLine="underline"
-            textUnderlineOffset="3px"
-            textDecorationThickness="0"
-          >
-            {synonym}
-          </Text>
-        );
-      });
-    }
-    if (synonyms.length > 3) {
-      return longList === false
-        ? synonyms.slice(0, 3).map((synonym: string, key: any) => {
-            return (
-              <Text
-                marginRight="15px"
-                onClick={() => handleClick(synonym)}
-                key={key}
-                fontSize="20px"
-                fontWeight="700"
-                color="#A445ED"
-                cursor="pointer"
-                textDecorationLine="underline"
-                textUnderlineOffset="3px"
-                textDecorationThickness="0"
-              >
-                {synonym}
-              </Text>
-            );
-          })
-        : synonyms.map((synonym: string, key: any) => {
-            return (
-              <Text
-                marginRight="15px"
-                onClick={() => handleClick(synonym)}
-                key={key}
-                color="#A445ED"
-                fontSize="20px"
-                fontWeight="700"
-                cursor="pointer"
-                textDecorationLine="underline"
-                textUnderlineOffset="3px"
-                textDecorationThickness="0"
-              >
-                {synonym}
-              </Text>
-            );
-          });
-    }
-  }
 
   return (
     <Box display="flex" flexDir="row">
@@ -99,7 +30,7 @@ export function WordSynonyms({ synonyms }: WordSynonymsProps) {
         flexWrap="wrap"
         maxW={{ base: "240px", sm: "616px" }}
       >
-        {synonymsList(synonyms)}
+        <SynonymsList synonyms={synonyms} longList={longList} />
         {synonyms.length > 3 ? (
           <IconButton
             aria-label="Click for more"
