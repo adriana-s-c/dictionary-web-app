@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Box } from "@chakra-ui/react";
 import { NavBar } from "./NavBar";
-import { SearchInput } from "./SearchInput";
+import { Search } from "./Search";
 import { FontContext } from "../../context";
 import { ContentRender } from "./ContentRender";
 
@@ -20,7 +20,7 @@ export function DictionaryApp() {
         fontFamily={font}
       >
         <NavBar />
-        <SearchInput />
+        <Search />
         <ContentRender />
       </Box>
     </FontContext.Provider>
