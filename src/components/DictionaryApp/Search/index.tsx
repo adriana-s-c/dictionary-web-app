@@ -11,10 +11,12 @@ import {
 import searchIcon from "../../../images/icon-search.svg";
 import { WordContext } from "../../../context";
 
-export function SearchInput() {
+export function Search() {
   const { setWord } = React.useContext(WordContext);
   const [inputWord, setInputWord] = React.useState("");
   const [inputError, setInputError] = React.useState(false);
+
+  const inputHasError = !inputWord;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (inputWord.length > 0) {
@@ -76,7 +78,7 @@ export function SearchInput() {
           <Img src={searchIcon} alt="Search" onClick={handleSearchClick} />
         </InputRightElement>
       </InputGroup>
-      {inputError === true ? (
+      {inputError ? (
         <Text color="#FF5252" fontWeight="400" fontSize="20px" marginTop="8px">
           Whoops, can’t be empty…
         </Text>
