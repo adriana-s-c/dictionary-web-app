@@ -4,9 +4,11 @@ import { NavBar } from "./NavBar";
 import { Search } from "./Search";
 import { FontContext } from "../../context";
 import { ContentRender } from "./ContentRender";
+import { useWord } from "../../hooks/useWord";
 
 export function DictionaryApp() {
   const [font, setFont] = React.useState("Inter");
+  const { word } = useWord();
 
   return (
     <FontContext.Provider value={{ font, setFont }}>
@@ -20,7 +22,7 @@ export function DictionaryApp() {
         fontFamily={font}
       >
         <NavBar />
-        <Search />
+        <Search key={word} />
         <ContentRender />
       </Box>
     </FontContext.Provider>

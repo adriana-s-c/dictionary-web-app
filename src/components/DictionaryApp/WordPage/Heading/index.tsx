@@ -1,12 +1,10 @@
 import * as React from "react";
 import { Box, Text } from "@chakra-ui/react";
-import { DictionaryDefitinitionContext } from "../../../../context";
 import { PlayWordSound } from "./PlayWordSound";
+import { useDictionaryDefinition } from "../../../../hooks/useDictionaryDefinition";
 
 export function Heading() {
-  const { dictionaryDefinition } = React.useContext(
-    DictionaryDefitinitionContext
-  );
+  const dictionaryDefinition = useDictionaryDefinition();
 
   return (
     <Box
@@ -36,29 +34,31 @@ export function Heading() {
         <Text
           color="2D2D2D"
           fontSize={
-            dictionaryDefinition[0].word.length > 10
+            dictionaryDefinition.entries[0].word.length > 10
               ? { base: "30px", sm: "44px" }
               : { base: "50px", sm: "64px" }
           }
           fontWeight="700"
           textShadow="0px 4px 4px #00000040"
         >
-          {dictionaryDefinition[0].word}
+          {dictionaryDefinition.entries[0].word}
         </Text>
         <Text
           fontSize={
-            dictionaryDefinition[0].word.length > 10
+            dictionaryDefinition.entries[0].word.length > 10
               ? { base: "18px", sm: "24px" }
               : { base: "24px", sm: "24px" }
           }
           color="#A445ED"
         >
-          {dictionaryDefinition[0].phonetics.length < 1
+          {dictionaryDefinition.entries[0].phonetics.length < 1
             ? null
-            : dictionaryDefinition[0].phonetics[0].text}
+            : dictionaryDefinition.entries[0].phonetics[0].text}
         </Text>
       </Box>
-      {dictionaryDefinition[0].phonetics.length < 1 ? null : <PlayWordSound />}
+      {dictionaryDefinition.entries[0].phonetics.length < 1 ? null : (
+        <PlayWordSound />
+      )}
     </Box>
   );
 }

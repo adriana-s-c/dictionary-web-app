@@ -9,20 +9,21 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import searchIcon from "../../../images/icon-search.svg";
-import { WordContext } from "../../../context";
+import { useWord } from "../../../hooks/useWord";
+import { useDebounce } from "@react-hook/debounce";
 
 export function Search() {
-  const { setWord } = React.useContext(WordContext);
-  const [inputWord, setInputWord] = React.useState("");
+  const { word, setWord } = useWord();
+  const [inputWord, setInputWord] = React.useState<string>(word ?? "");
   const [inputError, setInputError] = React.useState(false);
 
   const inputHasError = !inputWord;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (inputWord.length > 0) {
+    if (inputWord?.length > 0) {
       setInputError(false);
     }
-    return setInputWord(event.target.value);
+    setInputWord(event.target.value);
   };
 
   const handleSearchClick = () => {
@@ -73,7 +74,9 @@ export function Search() {
           }}
           placeholder="Search for any word…"
           inputMode="search"
+          value={inputWord}
         />
+
         <InputRightElement h="64px">
           <Img src={searchIcon} alt="Search" onClick={handleSearchClick} />
         </InputRightElement>

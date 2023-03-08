@@ -1,12 +1,10 @@
 import * as React from "react";
 import { Box, Text, Img, Link, useColorModeValue } from "@chakra-ui/react";
 import newWindowcIcon from "../../../../images/icon-new-window.svg";
-import { DictionaryDefitinitionContext } from "../../../../context";
+import { useDictionaryDefinition } from "../../../../hooks/useDictionaryDefinition";
 
 export function Source() {
-  const { dictionaryDefinition } = React.useContext(
-    DictionaryDefitinitionContext
-  );
+  const dictionaryDefinition = useDictionaryDefinition();
 
   return (
     <Box marginTop="20px" display="flex" flexDir="row" h="17px">
@@ -22,7 +20,7 @@ export function Source() {
         Source
       </Text>
       <Link
-        href={dictionaryDefinition[0].sourceUrls[0]}
+        href={dictionaryDefinition.entries[0].sourceUrls[0]}
         isExternal
         display="flex"
         flexDirection="row"
@@ -33,7 +31,7 @@ export function Source() {
         textUnderlineOffset="3px"
         textDecorationThickness="0"
       >
-        {dictionaryDefinition[0].sourceUrls[0]}
+        {dictionaryDefinition.entries[0].sourceUrls[0]}
         <Img src={newWindowcIcon} alt="New window" marginLeft="9px" />
       </Link>
     </Box>

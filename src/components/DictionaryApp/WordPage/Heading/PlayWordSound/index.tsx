@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Icon, IconButton, useColorMode } from "@chakra-ui/react";
-import { DictionaryDefitinitionContext } from "../../../../../context";
+import { useDictionaryDefinition } from "../../../../../hooks/useDictionaryDefinition";
 
 const audioSrc = (dictionaryDefinition: any) =>
   dictionaryDefinition[0].phonetics.find(
@@ -23,13 +23,11 @@ const PlayIcon = () => (
 );
 
 export function PlayWordSound() {
-  const { dictionaryDefinition } = React.useContext(
-    DictionaryDefitinitionContext
-  );
+  const dictionaryDefinition = useDictionaryDefinition();
   const { colorMode } = useColorMode();
 
   const handleClick = () => {
-    const wordAudio = new Audio(audioSrc(dictionaryDefinition).audio);
+    const wordAudio = new Audio(audioSrc(dictionaryDefinition.entries).audio);
 
     return wordAudio.play();
   };
