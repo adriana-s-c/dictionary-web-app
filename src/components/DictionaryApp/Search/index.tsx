@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import searchIcon from "../../../images/icon-search.svg";
 import { useWord } from "../../../hooks/useWord";
-import { useDebounce } from "@react-hook/debounce";
 
 export function Search() {
   const { word, setWord } = useWord();

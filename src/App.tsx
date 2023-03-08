@@ -6,7 +6,6 @@ import {
   Definition,
 } from "./hooks/useDictionaryDefinition";
 import { WordContext } from "./hooks/useWord";
-import { useDebounce } from "@react-hook/debounce";
 
 function App() {
   const [word, setWord] = React.useState("keyboard");
