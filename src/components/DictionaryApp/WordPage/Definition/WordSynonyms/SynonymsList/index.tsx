@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Text } from "@chakra-ui/react";
-import { WordContext } from "../../../../../../context";
+import { useWord } from "../../../../../../hooks/useWord";
 
 type SynonymsListProps = {
   synonyms: any;
@@ -8,7 +8,7 @@ type SynonymsListProps = {
 };
 
 export function SynonymsList({ synonyms, longList }: SynonymsListProps) {
-  const { setWord } = React.useContext(WordContext);
+  const { setWord } = useWord();
 
   const handleClick = (synonym: string) => {
     setWord(synonym);

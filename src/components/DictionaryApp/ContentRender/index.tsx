@@ -1,21 +1,20 @@
 import * as React from "react";
-import { DictionaryDefitinitionContext, WordContext } from "../../../context";
 import { WordPage } from "../WordPage";
 import { ErrorPage } from "../ErrorPage";
+import { useWord } from "../../../hooks/useWord";
+import { useDictionaryDefinition } from "../../../hooks/useDictionaryDefinition";
 
 export function ContentRender() {
-  const { dictionaryDefinition } = React.useContext(
-    DictionaryDefitinitionContext
-  );
-  const { word } = React.useContext(WordContext);
+  const dictionaryDefinition = useDictionaryDefinition();
+  const { word } = useWord();
 
-  if (word.replace(/\s/g, "") === "") {
+  if (word?.replace(/\s/g, "") === "") {
     return null;
   }
-  if (dictionaryDefinition.length > 0) {
+  if (dictionaryDefinition.entries.length > 0) {
     return <WordPage />;
   }
-  if (dictionaryDefinition.title === "No Definitions Found") {
+  if (dictionaryDefinition.error) {
     return <ErrorPage />;
   } else {
     return null;

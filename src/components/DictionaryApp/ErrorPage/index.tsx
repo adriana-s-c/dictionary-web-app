@@ -1,14 +1,12 @@
 import * as React from "react";
 import { Box, Img, Text } from "@chakra-ui/react";
-import { DictionaryDefitinitionContext } from "../../../context";
 import confusedFaceEmoji from "../../../images/confused-face.png";
+import { useDictionaryDefinition } from "../../../hooks/useDictionaryDefinition";
 
 export function ErrorPage() {
-  const { dictionaryDefinition } = React.useContext(
-    DictionaryDefitinitionContext
-  );
+  const dictionaryDefinition = useDictionaryDefinition();
 
-  const { message, resolution } = dictionaryDefinition;
+  const { message = "", resolution = "" } = dictionaryDefinition.error ?? {};
   const errorMessage = message.concat(" ", resolution);
 
   return (
@@ -30,7 +28,7 @@ export function ErrorPage() {
         marginBottom="24px"
       />
       <Text fontSize="20px" fontWeight="700" marginBottom="24px">
-        {dictionaryDefinition.title}
+        {dictionaryDefinition.error?.title}
       </Text>
       <Text fontSize="18px" fontWeight="400" textAlign="center">
         {errorMessage}
