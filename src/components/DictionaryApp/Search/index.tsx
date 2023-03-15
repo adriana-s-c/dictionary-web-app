@@ -14,30 +14,19 @@ import { useWord } from "../../../hooks/useWord";
 export function Search() {
   const { word, setWord } = useWord();
   const [inputWord, setInputWord] = React.useState<string>(word ?? "");
-  const [inputError, setInputError] = React.useState(false);
-
-  const inputHasError = !inputWord;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (inputWord?.length > 0) {
-      setInputError(false);
-    }
     setInputWord(event.target.value);
   };
 
+  const inputHasError = word === "";
+
   const handleSearchClick = () => {
-    if (inputWord.length === 0) {
-      setInputError(true);
-      setWord(inputWord);
-    }
     setWord(inputWord);
   };
 
   const handleKeyDown = (event: any) => {
     if (event.key === "Enter") {
-      if (inputWord.length === 0) {
-        setInputError(true);
-      }
       setWord(inputWord);
     }
   };
@@ -56,7 +45,7 @@ export function Search() {
         <Input
           bgColor={useColorModeValue("#F4F4F4", "#1F1F1F")}
           borderColor={useColorModeValue("#F4F4F4", "#050505")}
-          focusBorderColor={inputError === true ? "#FF5252" : "#A445ED"}
+          focusBorderColor={inputHasError ? "#FF5252" : "#A445ED"}
           errorBorderColor="#FF5252"
           fontSize="20px"
           fontWeight="700"
@@ -64,7 +53,7 @@ export function Search() {
           borderRadius="16px"
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          isInvalid={inputError}
+          isInvalid={inputHasError}
           _placeholder={{
             color: useColorModeValue("#2D2D2D", "white"),
             opacity: "25%",
@@ -80,7 +69,7 @@ export function Search() {
           <Img src={searchIcon} alt="Search" onClick={handleSearchClick} />
         </InputRightElement>
       </InputGroup>
-      {inputError ? (
+      {inputHasError ? (
         <Text color="#FF5252" fontWeight="400" fontSize="20px" marginTop="8px">
           Whoops, can’t be empty…
         </Text>
